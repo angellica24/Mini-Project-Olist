@@ -1,65 +1,119 @@
 # Olist E-Commerce Business Intelligence Dashboard
 
+An end-to-end Business Intelligence project analyzing Brazilian e-commerce data to evaluate sales performance, delivery operations, customer satisfaction, and payment transactions using Power BI, Python, and SQL.
+
+---
+
 ## Project Overview
 
-This project focuses on analyzing the business performance of Olist, a Brazilian e-commerce platform, using Business Intelligence techniques. The objective is to transform raw e-commerce data into meaningful insights through data analysis and interactive dashboards.
+This project focuses on analyzing the business performance of Olist, a Brazilian e-commerce platform, using Business Intelligence techniques. The main objective is to transform raw e-commerce data into meaningful business insights through data analysis, data modeling, and interactive dashboard development.
 
-The project covers sales performance, delivery performance, customer satisfaction, and payment transaction analysis to support data-driven business decision-making.
+The analysis provides an overview of sales performance, product category contributions, delivery efficiency, customer satisfaction, and payment behavior. The findings are presented through an interactive Power BI dashboard to support data-driven business decision-making.
 
 ## Project Objectives
 
-- Analyze overall sales performance and monthly sales trends.
-- Identify the top-performing product categories based on merchandise sales.
-- Evaluate delivery performance and late delivery rates.
-- Analyze customer review scores based on delivery performance.
-- Understand payment method distribution and credit card installment behavior.
+- Analyze overall merchandise sales and delivered order performance.
+- Identify monthly sales trends and high-performing product categories.
+- Evaluate delivery performance and identify the proportion of late deliveries.
+- Analyze customer satisfaction based on delivery performance.
+- Understand customer payment preferences and credit card installment patterns.
+- Present business insights through interactive and informative visualizations.
 
 ## Tools & Technologies
 
-- **Power BI Desktop** – Data modeling, visualization, and interactive dashboard development.
-- **SQL** – Data querying and analysis.
-- **Python** – Data processing and exploratory data analysis.
-- **Microsoft Excel / CSV** – Dataset storage and management.
+| Tool | Purpose |
+|---|---|
+| Power BI Desktop | Data modeling, dashboard development, and visualization |
+| Python | Data processing and exploratory data analysis |
+| SQL | Data querying and analysis |
+| CSV / Excel | Dataset storage and management |
+| GitHub | Project version control and documentation |
+
+## Dataset
+
+The project uses the Olist Brazilian E-Commerce dataset, which contains information related to e-commerce transactions and operations.
+
+The dataset covers several business aspects, including:
+
+- Orders and order items
+- Customers and sellers
+- Product categories
+- Payments and installments
+- Customer reviews
+- Delivery and logistics information
+- Geolocation data
+
+The dataset files used in this project are organized in the `Dataset` folder.
 
 ## Dashboard Overview
 
-This project consists of three interactive dashboard pages.
+The Power BI dashboard consists of three main analytical pages.
 
 ### 1. Sales Performance
 
-Focuses on overall sales performance and product category analysis.
+This page provides an overview of the platform's sales performance and product category contributions.
 
-Key visualizations:
-- Total Merchandise Sales (BRL).
-- Total Delivered Orders.
-- Monthly Sales Trend.
-- Top 10 Product Categories by Sales.
+**Key Performance Indicators:**
+- Total Merchandise Sales (BRL): 13.22 Million
+- Total Delivered Orders: Approximately 96 Thousand
+
+**Visualizations:**
+- Monthly Sales Trend (BRL)
+- Top 10 Product Categories by Sales (BRL)
+
+**Business Focus:**
+
+Identify sales trends over time and determine which product categories contribute most significantly to overall merchandise sales.
+
+![Sales Performance Dashboard](Screenshots/01-sales-performance.png)
 
 ### 2. Delivery & Customer Satisfaction
 
-Evaluates delivery performance and its relationship with customer satisfaction.
+This page evaluates delivery performance and examines the relationship between delivery conditions and customer satisfaction.
 
-Key visualizations:
-- Late Delivery Rate.
-- Total Eligible Delivered Orders.
-- Delivery Performance by Delivery Group.
-- Average Customer Review Score by Delivery Group.
+**Key Performance Indicators:**
+- Late Delivery Rate: 6.78%
+- Total Eligible Delivered Orders: Approximately 96 Thousand
+
+**Visualizations:**
+- Delivery Performance by Delivery Group
+- Average Customer Review Score by Delivery Group
+
+**Business Focus:**
+
+Evaluate delivery efficiency by comparing on-time or early deliveries with late deliveries. The analysis also highlights differences in customer review scores between delivery groups.
+
+![Delivery and Customer Satisfaction Dashboard](Screenshots/02-delivery-customer-satisfaction.png)
 
 ### 3. Payment & Transaction Analysis
 
-Provides insights into customer payment preferences and credit card installment behavior.
+This page provides insights into customer payment preferences and credit card installment behavior.
 
-Key visualizations:
-- Payment Methods Distribution.
-- Credit Card Installment Distribution.
+**Visualizations:**
+- Payment Methods Distribution
+- Credit Card Installment Distribution
+
+**Business Focus:**
+
+Understand the distribution of payment methods used by customers and identify the most common credit card installment patterns.
+
+![Payment and Transaction Analysis Dashboard](Screenshots/03-payment-transaction-analysis.png)
 
 ## Key Business Insights
 
-- Total merchandise sales reached approximately BRL 13.22 million.
-- Total delivered orders reached approximately 96 thousand.
-- The late delivery rate was approximately 6.78%.
-- On-time or early deliveries received a higher average review score (4.3) compared to late deliveries (2.3).
-- Credit cards represented the largest share of recorded payment methods.
+Based on the dashboard analysis, several findings can be highlighted:
+
+1. **Sales Performance:** Total merchandise sales reached approximately BRL 13.22 million, with around 96 thousand delivered orders.
+
+2. **Product Categories:** Health and beauty, watches and gifts, and bed, bath and table were among the leading product categories by merchandise sales.
+
+3. **Delivery Performance:** The late delivery rate was approximately 6.78%, indicating that most eligible delivered orders were classified as on time or early.
+
+4. **Customer Satisfaction:** On-time or early deliveries recorded an average review score of approximately 4.3, while late deliveries recorded approximately 2.3.
+
+5. **Payment Behavior:** Credit cards represented the largest share of recorded payment methods, accounting for approximately 73.92% of payment records.
+
+These findings demonstrate how Business Intelligence can help identify operational performance patterns and areas that may require further business improvement.
 
 ## Repository Structure
 
@@ -67,37 +121,64 @@ Key visualizations:
 Mini-Project-Olist/
 │
 ├── Dataset/
+│   └── Olist dataset files
 │
 ├── Olist_Ecommerce_Dashboard.Report/
+│   └── Power BI report files
 │
 ├── Olist_Ecommerce_Dashboard.SemanticModel/
+│   └── Data model files
 │
 ├── Python/
+│   └── Python analysis files
 │
 ├── SQL/
+│   └── SQL query files
+│
+├── Screenshots/
+│   ├── 01-sales-performance.png
+│   ├── 02-delivery-customer-satisfaction.png
+│   └── 03-payment-transaction-analysis.png
 │
 ├── Olist_Ecommerce_Dashboard.pbip
 ├── Olist_Ecommerce_Dashboard.pbix
 ├── .gitignore
-└── .gitattributes
+├── .gitattributes
+└── README.md
 ```
 
-## How to Use
+## How to Use This Project
+
+To explore the Power BI dashboard:
 
 1. Clone or download this repository.
-2. Open `Olist_Ecommerce_Dashboard.pbix` using Power BI Desktop, or open the `.pbip` project file for the project-based format.
-3. Ensure the dataset paths are configured correctly.
-4. Refresh the data if necessary.
-5. Explore the three dashboard pages.
+2. Open `Olist_Ecommerce_Dashboard.pbix` using Power BI Desktop, or open `Olist_Ecommerce_Dashboard.pbip` to access the Power BI Project format.
+3. Ensure that the dataset file paths and data source connections are configured correctly.
+4. Refresh the data if required.
+5. Navigate through the three dashboard pages to explore the analysis.
+
+**Note:** Data source paths may need to be adjusted depending on the local directory where the repository is stored.
 
 ## Project Scope
 
-This is an academic and portfolio project developed to demonstrate practical skills in Business Intelligence, data analysis, data visualization, and business insight generation.
+This project was developed as an academic and professional portfolio project to demonstrate practical knowledge of Business Intelligence and data analytics.
+
+It showcases the application of data analysis, data visualization, data modeling, and business interpretation to transform raw e-commerce data into actionable insights.
 
 ## Author
 
 **Angellica Ivana**
 
-Business Intelligence | Data Analytics | Information Systems
+Information Systems Student
 
-GitHub: [angellica24](https://github.com/angellica24)
+Areas of Interest:
+- Business Intelligence
+- Data Analytics
+- Business Analysis
+- Data Visualization
+
+GitHub: [@angellica24](https://github.com/angellica24)
+
+---
+
+*This project is part of my learning journey in Business Intelligence and Data Analytics.*
