@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "20e01b2075705989dbc5",
+  "position": {
+    "x": 112.64300381343502,
+    "y": 207.26312701672043,
+    "z": 1000,
+    "height": 450.57201525374006,
+    "width": 1049.8327955412144,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_ecommerce vw_olist_monthly_sales"
+                    }
+                  },
+                  "Property": "purchase_month"
+                }
+              },
+              "queryRef": "olist_ecommerce vw_olist_monthly_sales.purchase_month",
+              "nativeQueryRef": "purchase_month",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "olist_ecommerce vw_olist_monthly_sales"
+                        }
+                      },
+                      "Property": "merchandise_sales_brl"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(olist_ecommerce vw_olist_monthly_sales.merchandise_sales_brl)",
+              "nativeQueryRef": "Sum of merchandise_sales_brl"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "olist_ecommerce vw_olist_monthly_sales"
+                  }
+                },
+                "Property": "purchase_month"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly Sales Trend (BRL)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

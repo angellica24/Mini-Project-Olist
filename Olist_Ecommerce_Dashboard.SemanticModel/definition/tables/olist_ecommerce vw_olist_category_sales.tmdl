@@ -1,0 +1,50 @@
+table 'olist_ecommerce vw_olist_category_sales'
+	lineageTag: cc7d792d-2b16-4b2c-8f6f-1f71c206b82c
+
+	column product_category
+		dataType: string
+		lineageTag: 3350fa3f-8426-4bba-a712-8dc8583ba282
+		summarizeBy: none
+		sourceColumn: product_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bb2df38-b783-46b9-9636-50e853b5899f
+		summarizeBy: sum
+		sourceColumn: delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column sold_item_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: ed67bb9c-035b-460d-a047-b9bca965e1b5
+		summarizeBy: sum
+		sourceColumn: sold_item_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchandise_sales_brl
+		dataType: double
+		lineageTag: 66df521c-9551-48e5-92c7-ef6ad6ffc178
+		summarizeBy: sum
+		sourceColumn: merchandise_sales_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'olist_ecommerce vw_olist_category_sales' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3307", "olist_ecommerce", [ReturnSingleDatabase=true]),
+				    olist_ecommerce_vw_olist_category_sales = Source{[Schema="olist_ecommerce",Item="vw_olist_category_sales"]}[Data]
+				in
+				    olist_ecommerce_vw_olist_category_sales
+
+	annotation PBI_ResultType = Table
+

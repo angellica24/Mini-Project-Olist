@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2241a29e8fcefb056897",
+  "position": {
+    "x": 637.5,
+    "y": 172.5,
+    "z": 4000,
+    "height": 173.28081692195477,
+    "width": 322.66083150984684,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DeliveryRating"
+                        }
+                      },
+                      "Property": "eligible_delivered_orders"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DeliveryRating.eligible_delivered_orders)",
+              "nativeQueryRef": "Total Eligible Delivered Orders",
+              "displayName": "Total Eligible Delivered Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DeliveryRating"
+                      }
+                    },
+                    "Property": "eligible_delivered_orders"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

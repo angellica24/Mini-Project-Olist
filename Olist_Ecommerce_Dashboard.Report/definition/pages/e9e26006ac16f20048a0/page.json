@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "e9e26006ac16f20048a0",
+  "displayName": "Payment & Transaction Analysis",
+  "displayOption": "ActualSize",
+  "height": 850,
+  "width": 1500
+}

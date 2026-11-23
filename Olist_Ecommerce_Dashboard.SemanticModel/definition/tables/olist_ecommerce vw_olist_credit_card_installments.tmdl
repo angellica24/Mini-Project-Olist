@@ -1,0 +1,50 @@
+table 'olist_ecommerce vw_olist_credit_card_installments'
+	lineageTag: 1609658f-4efc-4678-a7ae-61405523c83b
+
+	column installment_group
+		dataType: string
+		lineageTag: 101aeb32-d48b-49ab-8fe2-c409c77c18d2
+		summarizeBy: none
+		sourceColumn: installment_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_records
+		dataType: int64
+		formatString: 0
+		lineageTag: fc344ce2-3dab-452e-a74b-8ab529fc5bea
+		summarizeBy: sum
+		sourceColumn: payment_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column unique_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: e7858596-82b9-4b9f-8b3e-d27550d909de
+		summarizeBy: sum
+		sourceColumn: unique_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column recorded_payment_value_brl
+		dataType: double
+		lineageTag: 564d8ec9-bf02-4089-a0ce-d2be7f60256d
+		summarizeBy: sum
+		sourceColumn: recorded_payment_value_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'olist_ecommerce vw_olist_credit_card_installments' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3307", "olist_ecommerce", [ReturnSingleDatabase=true]),
+				    olist_ecommerce_vw_olist_credit_card_installments = Source{[Schema="olist_ecommerce",Item="vw_olist_credit_card_installments"]}[Data]
+				in
+				    olist_ecommerce_vw_olist_credit_card_installments
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,119 @@
+table DeliveryRating
+	lineageTag: 49d5a143-1fad-4b32-961d-11189840949c
+
+	measure Measure
+		lineageTag: e711d8fb-64bc-4b57-b77e-2d9bc809d160
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Late Delivery Rate' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM(DeliveryRating[eligible_delivered_orders]),
+			        DeliveryRating[is_late] = 1
+			    ),
+			    SUM(DeliveryRating[eligible_delivered_orders]),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a649b0d3-ffbf-4339-b28a-7a347134d295
+
+	column is_late
+		dataType: int64
+		formatString: 0
+		lineageTag: 08662189-5004-4166-b0ec-b0cffc7198ad
+		summarizeBy: sum
+		sourceColumn: is_late
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_group
+		dataType: string
+		lineageTag: 5e69b7bf-8175-4922-8dfd-83a8c531abef
+		summarizeBy: none
+		sourceColumn: delivery_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column eligible_delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: c3446cdb-bad3-4d1d-a13b-c4d4b346d729
+		summarizeBy: sum
+		sourceColumn: eligible_delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column orders_with_any_review
+		dataType: int64
+		formatString: 0
+		lineageTag: 3860a4f4-5c5e-4004-b6f4-6d5fd35c3e7f
+		summarizeBy: sum
+		sourceColumn: orders_with_any_review
+
+		annotation SummarizationSetBy = Automatic
+
+	column any_review_coverage_pct
+		dataType: double
+		lineageTag: bf34c35e-4bd5-464f-a2eb-7d305c432ccc
+		summarizeBy: sum
+		sourceColumn: any_review_coverage_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_score_all_reviews
+		dataType: double
+		lineageTag: 868c23d6-03dc-4588-831b-1131daadcffa
+		summarizeBy: sum
+		sourceColumn: avg_score_all_reviews
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column orders_with_post_delivery_review
+		dataType: double
+		lineageTag: 9152abde-7d41-4921-a76f-7a2d34eb7733
+		summarizeBy: sum
+		sourceColumn: orders_with_post_delivery_review
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column post_delivery_review_coverage_pct
+		dataType: double
+		lineageTag: 3703f391-b6d0-4b95-8cb1-14505e7a47fc
+		summarizeBy: sum
+		sourceColumn: post_delivery_review_coverage_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_score_post_delivery_only
+		dataType: double
+		lineageTag: f1291cb7-a2aa-4c24-99b5-4f18aa9785c3
+		summarizeBy: sum
+		sourceColumn: avg_score_post_delivery_only
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DeliveryRating = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3307", "olist_ecommerce", [ReturnSingleDatabase=true]),
+				    olist_ecommerce_vw_olist_delivery_rating_comparison = Source{[Schema="olist_ecommerce",Item="vw_olist_delivery_rating_comparison"]}[Data]
+				in
+				    olist_ecommerce_vw_olist_delivery_rating_comparison
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

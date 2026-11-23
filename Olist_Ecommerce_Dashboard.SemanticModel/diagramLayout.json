@@ -1,0 +1,86 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 418,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 60
+          },
+          "nodeIndex": "olist_ecommerce vw_olist_category_sales",
+          "nodeLineageTag": "cc7d792d-2b16-4b2c-8f6f-1f71c206b82c",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 60
+          },
+          "nodeIndex": "olist_ecommerce vw_olist_credit_card_installments",
+          "nodeLineageTag": "1609658f-4efc-4678-a7ae-61405523c83b",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 36
+          },
+          "nodeIndex": "olist_ecommerce vw_olist_monthly_sales",
+          "nodeLineageTag": "2e938c9b-2a02-469f-ae22-3c4344f25329",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 48
+          },
+          "nodeIndex": "olist_ecommerce vw_olist_payment_methods",
+          "nodeLineageTag": "8da7fa45-bcf3-4695-b6c5-f4a3ee55323c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "DeliveryRating",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 13.020833333333334,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "330f0ca6c8b0aa547090",
+  "position": {
+    "x": 872.9832795541214,
+    "y": 86.359636256966837,
+    "z": 3000,
+    "height": 112.64300381343502,
+    "width": 210.26694045174537,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "olist_ecommerce vw_olist_monthly_sales"
+                        }
+                      },
+                      "Property": "delivered_orders"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(olist_ecommerce vw_olist_monthly_sales.delivered_orders)",
+              "nativeQueryRef": "Total Delivered Orders",
+              "displayName": "Total Delivered Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "olist_ecommerce vw_olist_monthly_sales"
+                      }
+                    },
+                    "Property": "delivered_orders"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f5cc1e78dca47b86963b",
+  "position": {
+    "x": 1042.5,
+    "y": 150,
+    "z": 2000,
+    "height": 730,
+    "width": 510,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DeliveryRating"
+                    }
+                  },
+                  "Property": "delivery_group"
+                }
+              },
+              "queryRef": "olist_ecommerce vw_olist_delivery_rating_comparison.delivery_group",
+              "nativeQueryRef": "delivery_group",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DeliveryRating"
+                        }
+                      },
+                      "Property": "avg_score_all_reviews"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(olist_ecommerce vw_olist_delivery_rating_comparison.avg_score_all_reviews)",
+              "nativeQueryRef": "Average Customer Review Score by Delivery Group",
+              "displayName": "Average Customer Review Score by Delivery Group"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DeliveryRating"
+                      }
+                    },
+                    "Property": "avg_score_all_reviews"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

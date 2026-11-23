@@ -1,0 +1,60 @@
+table 'olist_ecommerce vw_olist_payment_methods'
+	lineageTag: 8da7fa45-bcf3-4695-b6c5-f4a3ee55323c
+
+	column payment_type
+		dataType: string
+		lineageTag: c6de259d-26e2-4ce7-a9c2-9e94818fd41e
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c0932fc-42a0-46ce-aff4-52ff028957e3
+		summarizeBy: sum
+		sourceColumn: payment_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column unique_orders_per_method
+		dataType: int64
+		formatString: 0
+		lineageTag: a20075be-df7a-4262-9933-68f4fac9a51d
+		summarizeBy: sum
+		sourceColumn: unique_orders_per_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column recorded_payment_value_brl
+		dataType: double
+		lineageTag: 9f1c42a4-ba20-4d25-a273-c7923f0e7748
+		summarizeBy: sum
+		sourceColumn: recorded_payment_value_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_payment_record_brl
+		dataType: double
+		lineageTag: 79cb81cf-c5e6-4602-a175-0c60440e92de
+		summarizeBy: sum
+		sourceColumn: avg_payment_record_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'olist_ecommerce vw_olist_payment_methods' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3307", "olist_ecommerce", [ReturnSingleDatabase=true]),
+				    olist_ecommerce_vw_olist_payment_methods = Source{[Schema="olist_ecommerce",Item="vw_olist_payment_methods"]}[Data]
+				in
+				    olist_ecommerce_vw_olist_payment_methods
+
+	annotation PBI_ResultType = Table
+

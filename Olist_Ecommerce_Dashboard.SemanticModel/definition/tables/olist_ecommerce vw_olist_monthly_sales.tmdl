@@ -1,0 +1,70 @@
+table 'olist_ecommerce vw_olist_monthly_sales'
+	lineageTag: 2e938c9b-2a02-469f-ae22-3c4344f25329
+
+	column purchase_month
+		dataType: string
+		lineageTag: f3758074-907a-456e-bbe6-f4980c54c81d
+		summarizeBy: none
+		sourceColumn: purchase_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivered_orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a71972f-4fec-4efb-a753-03b55959b79a
+		summarizeBy: sum
+		sourceColumn: delivered_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column sold_item_rows
+		dataType: int64
+		formatString: 0
+		lineageTag: bb9b8518-dd68-4e54-ab02-72c92669ee5a
+		summarizeBy: sum
+		sourceColumn: sold_item_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchandise_sales_brl
+		dataType: double
+		lineageTag: aaf8958e-f0e1-42d3-a080-0bb4a02c327a
+		summarizeBy: sum
+		sourceColumn: merchandise_sales_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value_brl
+		dataType: double
+		lineageTag: cc8ee8fb-fd77-48d8-8946-530f72d120b9
+		summarizeBy: sum
+		sourceColumn: freight_value_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_merchandise_per_order_brl
+		dataType: double
+		lineageTag: 6a526371-e923-438f-a7b8-950f0fe3342a
+		summarizeBy: sum
+		sourceColumn: avg_merchandise_per_order_brl
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'olist_ecommerce vw_olist_monthly_sales' = m
+		mode: import
+		source =
+				let
+				    Source = MySQL.Database("127.0.0.1:3307", "olist_ecommerce", [ReturnSingleDatabase=true]),
+				    olist_ecommerce_vw_olist_monthly_sales = Source{[Schema="olist_ecommerce",Item="vw_olist_monthly_sales"]}[Data]
+				in
+				    olist_ecommerce_vw_olist_monthly_sales
+
+	annotation PBI_ResultType = Table
+
