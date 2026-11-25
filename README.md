@@ -167,8 +167,6 @@ Mini-Project-Olist/
 │   ├── Raw/
 │   └── Processed/
 │
-├── Documentation/
-│
 ├── Python/
 │   ├── check_reviews_csv.py
 │   ├── inspect_reviews_row.py
