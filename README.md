@@ -29,6 +29,18 @@ The analysis provides an overview of sales performance, product category contrib
 | CSV / Excel | Dataset storage and management |
 | GitHub | Project version control and documentation |
 
+## Python Utilities
+
+Python scripts are used to validate and preprocess the Olist order reviews dataset before it is used in the analysis.
+
+The project includes three supporting scripts:
+
+- `check_reviews_csv.py` – Checks CSV structure consistency by identifying records with an incorrect number of columns.
+- `inspect_reviews_row.py` – Inspects selected records to investigate potential data irregularities.
+- `prepare_reviews_tsv.py` – Converts the original review CSV dataset into TSV format while validating column consistency.
+
+These scripts support the data preparation process, particularly in handling the order reviews dataset.
+
 ## Dataset
 
 The project uses the Olist Brazilian E-Commerce dataset, which contains information related to e-commerce transactions and operations.
