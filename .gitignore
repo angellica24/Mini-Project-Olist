@@ -27,3 +27,6 @@ Desktop.ini
 
 # Locally generated processed dataset
 Dataset/Processed/olist_order_reviews_dataset.tsv
+
+# Python cleaned datasets and reports
+Dataset/Processed/Cleaned/
