@@ -10,7 +10,7 @@ This project analyzes the business performance of Olist, a Brazilian e-commerce 
 
 The objective is to transform raw e-commerce datasets into meaningful business insights through data preparation, data quality validation, SQL analysis, data modeling, and interactive dashboard development.
 
-The analysis focuses on four main business areas: sales performance, product category contributions, delivery efficiency, customer satisfaction, and payment behavior. The results are presented through an interactive Power BI dashboard to support data-driven business decision-making.
+The analysis focuses on five main business areas: sales performance, product category contributions, delivery efficiency, customer satisfaction, and payment behavior. The results are presented through an interactive Power BI dashboard to support data-driven business decision-making.
 
 ## Project Objectives
 
