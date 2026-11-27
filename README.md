@@ -1,42 +1,48 @@
-# Olist E-Commerce Business Intelligence Dashboard
+# Olist E-Commerce Business Intelligence Project
 
-An end-to-end Business Intelligence portfolio project analyzing Brazilian e-commerce data to evaluate sales performance, delivery operations, customer satisfaction, and payment behavior using MySQL, Python, and Power BI.
+An end-to-end Business Intelligence portfolio project analyzing Brazilian e-commerce data to evaluate sales performance, product categories, delivery operations, customer satisfaction, and payment behavior using Python, MySQL, and Power BI.
 
 ---
 
 ## Project Overview
 
-This project analyzes the business performance of Olist, a Brazilian e-commerce platform, through Business Intelligence and data analytics techniques.
+This project analyzes the business performance of Olist, a Brazilian e-commerce platform, using data analytics and Business Intelligence techniques.
 
-The objective is to transform raw e-commerce data into meaningful business insights through data preparation, data quality validation, SQL analysis, data modeling, and interactive dashboard development.
+The objective is to transform raw e-commerce transactional data into meaningful business insights through data cleaning, data quality validation, SQL analysis, exploratory data analysis (EDA), and interactive dashboard development.
 
-The analysis focuses on five main business areas: sales performance, product category contributions, delivery efficiency, customer satisfaction, and payment behavior. These results are presented through an interactive Power BI dashboard to support data-driven business decision-making.
+The analysis focuses on four main business areas: sales performance, product category contributions, delivery efficiency and customer satisfaction, and payment behavior.
+
+The results are presented through an interactive Power BI dashboard to support data-driven business decision-making.
 
 ## Project Objectives
 
-- Analyze overall merchandise sales and delivered order performance.
+- Analyze overall merchandise sales and order performance.
 - Identify monthly sales trends and high-performing product categories.
-- Evaluate delivery performance and identify the proportion of late deliveries.
+- Evaluate delivery performance and identify late delivery patterns.
 - Compare customer review scores between delivery performance groups.
-- Analyze customer payment preferences and credit card installment patterns.
-- Develop interactive dashboards to communicate business insights effectively.
+- Analyze payment methods, transaction values, and credit card installment patterns.
+- Develop interactive dashboards to communicate business insights.
+- Translate analytical findings into meaningful business recommendations.
 
 ## Tools & Technologies
 
 | Tool | Purpose |
 |---|---|
-| MySQL Workbench | Data staging, data quality checks, data transformation, and business analysis |
-| Python | CSV structure validation, data inspection, and review dataset preprocessing |
-| Power BI Desktop | Data modeling, dashboard development, and visualization |
-| Git & GitHub | Version control, project management, and documentation |
+| Python | Data cleaning, data validation, exploratory data analysis, and preprocessing |
+| Pandas & NumPy | Data manipulation and numerical analysis |
+| Matplotlib | Exploratory data visualization |
+| Jupyter Notebook | Data cleaning and EDA workflow |
+| MySQL Workbench | Database staging, data quality validation, SQL transformation, and business analysis |
+| Power BI Desktop | Data modeling, DAX measures, and interactive dashboard development |
+| Git & GitHub | Version control and project documentation |
 
 ## Dataset
 
-This project uses the Brazilian E-Commerce Public Dataset by Olist, which contains information about e-commerce transactions, customers, products, sellers, payments, reviews, and logistics.
+This project uses the Brazilian E-Commerce Public Dataset by Olist.
 
 **Dataset Source:** [Brazilian E-Commerce Public Dataset by Olist – Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-The analysis covers nine datasets:
+The original dataset contains nine CSV files covering:
 
 1. Customers
 2. Geolocation
@@ -48,46 +54,79 @@ The analysis covers nine datasets:
 8. Sellers
 9. Product Category Translation
 
-The original datasets are organized into the `Dataset/Raw` and `Dataset/Processed` directories.
-
-Please refer to the original Kaggle page for dataset attribution and applicable usage terms.
+The original datasets are stored separately from the processed datasets to maintain data integrity and traceability.
 
 ## Data Preparation & Analysis
 
-The data preparation and analysis process consists of three main components.
+The project follows a structured analytical workflow consisting of Python, SQL, and Power BI.
 
-### 1. SQL – Data Preparation and Business Analysis
+### 1. Python – Data Cleaning and Exploratory Data Analysis
 
-MySQL is used to prepare and analyze the Olist datasets.
+Python was used to inspect, clean, validate, and explore the Olist datasets.
 
-The SQL workflow includes:
+The Python workflow is organized into two main notebooks:
 
-- Creating raw staging tables for the nine datasets.
-- Performing data quality checks to identify data issues.
-- Investigating missing values, duplicate records, and data inconsistencies.
-- Preparing cleaned datasets for analytical purposes.
-- Creating business-oriented tables and views.
-- Validating analytical results before dashboard development.
+**Notebook 01 – Data Cleaning**
 
-Raw staging tables initially preserve source values using VARCHAR and TEXT data types to support data validation and cleaning.
+The cleaning process includes:
 
-### 2. Python – Data Validation and Preprocessing
+- Inspecting dataset structures and dimensions.
+- Identifying missing values.
+- Checking duplicate records.
+- Converting date and numeric data types.
+- Investigating data inconsistencies.
+- Preparing cleaned datasets.
+- Generating supporting data quality reports.
 
-Python is used to support the preparation of the order reviews dataset.
+**Notebook 02 – Exploratory Data Analysis**
 
-The project includes three supporting scripts:
+The EDA process focuses on:
 
-- `check_reviews_csv.py` – Checks CSV structure consistency by identifying records with an incorrect number of columns.
-- `inspect_reviews_row.py` – Inspects selected records to investigate potential data irregularities.
-- `prepare_reviews_tsv.py` – Converts the original review CSV dataset into TSV format while validating column consistency.
+- Sales performance and product category contributions.
+- Delivery performance and late delivery analysis.
+- Customer review score comparisons.
+- Payment method distribution and transaction characteristics.
+- Credit card installment behavior.
 
-These utilities support the review dataset preparation process, particularly in handling structural irregularities.
+Python was also used to prepare and validate the order reviews dataset through supporting scripts:
+
+- `check_reviews_csv.py`
+- `inspect_reviews_row.py`
+- `prepare_reviews_tsv.py`
+
+### 2. MySQL – Data Quality Validation and Business Analysis
+
+MySQL Workbench was used to prepare and analyze the Olist database.
+
+A total of 25 sequential SQL scripts were developed to support the database workflow.
+
+The SQL process includes:
+
+- Creating the database and raw staging tables.
+- Investigating missing values and duplicate records.
+- Validating review identifiers and geolocation records.
+- Checking numeric formats and value ranges.
+- Investigating date formats and chronological inconsistencies.
+- Preparing cleaned database tables.
+- Creating six business analysis views.
+- Validating delivery and customer review analytical results.
+
+The final analytical views cover:
+
+1. Monthly Sales
+2. Category Sales
+3. Delivery Review Order Level
+4. Delivery Rating Summary
+5. Payment Methods
+6. Credit Card Installments
+
+The delivery and review analytical view contains 96,282 eligible delivered orders, consistent with the final Python EDA results.
 
 ### 3. Power BI – Data Modeling and Visualization
 
-Power BI Desktop is used to develop the analytical dashboard based on the prepared business datasets.
+Power BI Desktop was used to transform the prepared analytical data into an interactive Business Intelligence dashboard.
 
-The dashboard consists of three main analytical pages, each focusing on a different aspect of business performance.
+The dashboard consists of three main analytical pages.
 
 ## Dashboard Overview
 
@@ -97,7 +136,7 @@ This page provides an overview of Olist's sales performance and product category
 
 **Key Performance Indicators:**
 
-- Total Merchandise Sales (BRL): 13.22 Million
+- Total Merchandise Sales (GMV): BRL 13.22 Million
 - Total Delivered Orders: 96,478
 
 **Visualizations:**
@@ -118,7 +157,7 @@ This page evaluates delivery performance and compares customer satisfaction acro
 **Key Performance Indicators:**
 
 - Late Delivery Rate: 6.78%
-- Total Eligible Delivered Orders: 96,267
+- Eligible Delivered Orders: 96,282
 
 **Visualizations:**
 
@@ -131,7 +170,9 @@ Evaluate delivery efficiency by comparing on-time or early deliveries with late 
 
 **Metric Definition:**
 
-The overall delivered-order count in the sales analysis is 96,478, while the delivery analysis uses 96,267 eligible delivered orders. These metrics represent different populations based on their respective analytical definitions.
+The overall delivered-order count is 96,478, while delivery performance analysis uses 96,282 eligible delivered orders.
+
+The eligible population excludes 196 delivered orders that did not meet the defined analytical criteria.
 
 The late delivery rate is calculated using eligible delivered orders as its denominator.
 
@@ -154,19 +195,62 @@ Understand the distribution of payment methods used by customers and identify th
 
 ## Key Business Insights
 
-Based on the dashboard analysis, several findings can be highlighted:
+Based on the Python EDA and SQL analysis, several findings can be highlighted.
 
-1. **Sales Performance:** Total merchandise sales reached approximately BRL 13.22 million, with 96,478 delivered orders.
+### 1. Sales Performance
 
-2. **Product Categories:** Health and beauty, watches and gifts, and bed, bath and table were among the leading product categories by merchandise sales.
+Total merchandise sales reached BRL 13,221,498.11, with 96,478 delivered orders.
 
-3. **Delivery Performance:** The late delivery rate was approximately 6.78%, based on 96,267 eligible delivered orders.
+The Average Order Value (AOV) was BRL 137.04.
 
-4. **Customer Satisfaction:** On-time or early deliveries recorded an average review score of approximately 4.3, while late deliveries recorded approximately 2.3. This indicates a notable difference in customer review scores between the two delivery groups.
+### 2. Product Category Performance
 
-5. **Payment Behavior:** Credit cards represented the largest share of recorded payment transactions, accounting for approximately 73.92% of payment records.
+Health and beauty, watches and gifts, and bed, bath and table were among the leading product categories by merchandise sales.
+
+This indicates that several product categories contributed significantly to overall sales performance.
+
+### 3. Delivery Performance
+
+Out of 96,282 eligible delivered orders:
+
+- 89,750 orders were delivered on time or early.
+- 6,532 orders were delivered late.
+- The late delivery rate was 6.78%.
+
+The average delivery duration was 12.51 days.
+
+### 4. Customer Satisfaction
+
+On-time or early deliveries recorded an average review score of 4.29, while late deliveries recorded an average score of 2.27.
+
+This indicates an association between delivery timeliness and customer satisfaction.
+
+### 5. Payment Behavior
+
+Credit cards represented the largest share of payment activity.
+
+In the Python analysis of delivered-order payments, credit cards accounted for 74.03% of payment records and 78.46% of recorded payment value.
+
+Payment analysis in SQL uses a broader dataset scope, so its payment record totals and percentages should be interpreted separately.
 
 These findings demonstrate how Business Intelligence can help identify business performance patterns, evaluate operational efficiency, and highlight areas that may require further investigation.
+
+## Data Quality & Analytical Considerations
+
+Data quality validation was conducted throughout the preparation and analysis process.
+
+Important considerations include:
+
+- Missing values were investigated before determining their analytical treatment.
+- Duplicate records were examined based on relevant identifiers.
+- Date and numeric inconsistencies were validated.
+- Delivered orders with missing or inconsistent delivery information were evaluated separately.
+- Different analytical outputs may use different filtering criteria and data populations.
+- Payment records and unique orders represent different measurement units.
+
+The delivery analysis uses 96,282 eligible orders rather than all 96,478 delivered orders.
+
+The relationship between delivery timeliness and customer review scores represents an observed association and does not independently establish causation.
 
 ## Repository Structure
 
@@ -176,6 +260,12 @@ Mini-Project-Olist/
 ├── Dataset/
 │   ├── Raw/
 │   └── Processed/
+│       ├── Cleaned/
+│       └── olist_order_reviews_dataset.tsv
+│
+├── notebook/
+│   ├── 01_pembersihan.ipynb
+│   └── 02_eksplorasi.ipynb
 │
 ├── Python/
 │   ├── check_reviews_csv.py
@@ -183,19 +273,27 @@ Mini-Project-Olist/
 │   └── prepare_reviews_tsv.py
 │
 ├── SQL/
-│   └── SQL scripts for data preparation and analysis
+│   └── 25 SQL scripts for data preparation and analysis
+│
+├── Documentation/
+│   ├── 01_project_overview.md
+│   ├── 02_data_dictionary.md
+│   ├── 03_data_cleaning_process.md
+│   ├── 04_sql_analysis.md
+│   ├── 05_eda_findings.md
+│   └── 06_power_bi_dashboard.md
+│
+├── Power BI/
+│   ├── Olist_Ecommerce_Dashboard.pbix
+│   ├── Olist_Ecommerce_Dashboard.pbip
+│   ├── Olist_Ecommerce_Dashboard.Report/
+│   └── Olist_Ecommerce_Dashboard.SemanticModel/
 │
 ├── Screenshots/
 │   ├── 01-sales-performance.png
 │   ├── 02-delivery-customer-satisfaction.png
 │   └── 03-payment-transaction-analysis.png
 │
-├── Olist_Ecommerce_Dashboard.Report/
-│
-├── Olist_Ecommerce_Dashboard.SemanticModel/
-│
-├── Olist_Ecommerce_Dashboard.pbip
-├── Olist_Ecommerce_Dashboard.pbix
 ├── .gitignore
 ├── .gitattributes
 └── README.md
@@ -206,23 +304,24 @@ Mini-Project-Olist/
 To explore the project and Power BI dashboard:
 
 1. Clone or download this repository.
-2. Download the Olist dataset from Kaggle if the original CSV files are not included in the repository, and organize them under `Dataset/Raw/`.
-3. Configure the MySQL database and execute the relevant SQL scripts in their numbered sequence.
-4. Run the Python scripts from the project root directory if you want to reproduce the review dataset validation and preprocessing steps.
-5. Open `Olist_Ecommerce_Dashboard.pbix` using Power BI Desktop, or open `Olist_Ecommerce_Dashboard.pbip` to access the Power BI Project format.
-6. Ensure that the dataset file paths and data source connections are configured correctly.
-7. Refresh the data if required.
-8. Navigate through the three dashboard pages to explore the analysis.
+2. Download the Olist dataset from Kaggle if the original CSV files are not included in the repository.
+3. Organize the original CSV files under `Dataset/Raw/`.
+4. Configure the MySQL database and execute the relevant SQL scripts in their numbered sequence.
+5. Run the Python notebooks to reproduce the data cleaning and exploratory analysis processes.
+6. Open `Olist_Ecommerce_Dashboard.pbix` using Power BI Desktop, or open the PBIP project format.
+7. Ensure that dataset file paths and data source connections are configured correctly.
+8. Refresh the data if required.
+9. Navigate through the three dashboard pages to explore the analysis.
 
 **Note:** Data source paths may need to be adjusted depending on the local directory where the repository is stored.
 
 ## Project Scope
 
-This project was developed as an academic and professional portfolio project to demonstrate practical knowledge of Business Intelligence and Data Analytics.
+This project was developed as an academic and professional portfolio project to demonstrate practical knowledge of Data Analytics and Business Intelligence.
 
-It showcases the process of transforming raw e-commerce data into structured analytical information through SQL querying, data quality validation, data preprocessing, data modeling, and business-oriented visualization.
+It showcases the process of transforming raw e-commerce data into structured analytical information through Python data preparation, SQL querying, data quality validation, exploratory analysis, and interactive dashboard development.
 
-The project emphasizes both technical implementation and business interpretation to demonstrate how data analysis can support informed decision-making.
+The project emphasizes both technical implementation and business interpretation to demonstrate how data analytics can support informed business decision-making.
 
 ## Author
 

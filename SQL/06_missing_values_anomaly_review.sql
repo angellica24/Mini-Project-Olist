@@ -38,7 +38,7 @@ ORDER BY order_id;
 
 
 SELECT
-    COUNT(*) AS products_missing_information,
+    COUNT(DISTINCT p.product_id) AS products_missing_information,
 
     COUNT(DISTINCT
         CASE

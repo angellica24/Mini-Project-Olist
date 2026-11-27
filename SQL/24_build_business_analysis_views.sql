@@ -199,8 +199,6 @@ WHERE o.order_status = 'delivered'
 
     AND o.order_estimated_delivery_date IS NOT NULL
 
-    AND o.delivered_missing_date = 0
-
     AND o.carrier_before_purchase = 0
 
     AND o.customer_before_carrier = 0
